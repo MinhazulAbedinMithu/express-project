@@ -42,9 +42,9 @@ router.post("/bulk", (req, res) => {
     .json({ message: "Bulk ticket Created Successfully.", tickets });
 });
 router.get("/draw", (req, res) => {
-  const winnerCount = req.query ?? 3;
+  const winnerCount = Number(req.query.winners) || 3;
   const winners = db.draw(winnerCount);
-  res.status(200).json(winners);
+  res.status(200).json({ winners });
 });
 router.get("/", (req, res) => {
   const tickets = db.find();

@@ -82,6 +82,7 @@ class MyDB {
   //update ticket by id
   updateById(ticketId, ticketBody) {
     const ticket = this.findById(ticketId);
+    console.log({ ticketId, ticketBody, ticket });
     ticket.username = ticketBody.username ?? ticket.username;
     ticket.price = ticketBody.price ?? ticket.price;
     ticket.updatedAt = new Date();
